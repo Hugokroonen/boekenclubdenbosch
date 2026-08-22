@@ -14,7 +14,54 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      inzendingen: {
+        Row: {
+          aantal_paginas: string | null
+          bericht: string | null
+          boek_omschrijving: string | null
+          boek_titel: string | null
+          created_at: string
+          email: string
+          genres: string | null
+          id: string
+          interesse: string | null
+          leeftijd: string | null
+          naam: string
+          samenwerking: string | null
+          type: string
+        }
+        Insert: {
+          aantal_paginas?: string | null
+          bericht?: string | null
+          boek_omschrijving?: string | null
+          boek_titel?: string | null
+          created_at?: string
+          email: string
+          genres?: string | null
+          id?: string
+          interesse?: string | null
+          leeftijd?: string | null
+          naam: string
+          samenwerking?: string | null
+          type: string
+        }
+        Update: {
+          aantal_paginas?: string | null
+          bericht?: string | null
+          boek_omschrijving?: string | null
+          boek_titel?: string | null
+          created_at?: string
+          email?: string
+          genres?: string | null
+          id?: string
+          interesse?: string | null
+          leeftijd?: string | null
+          naam?: string
+          samenwerking?: string | null
+          type?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
