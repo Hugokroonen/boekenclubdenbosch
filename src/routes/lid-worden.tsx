@@ -111,11 +111,19 @@ function LidWorden() {
       {/* TWEE CLUBJES */}
       <Sectie>
         <div className="grid items-center gap-10 lg:grid-cols-2">
-          <Foto
-            src={boekenCirkel.url}
-            alt="Boeken van de boekenclub in een cirkel gelegd"
-            ratio="aspect-[4/3]"
-          />
+          <div className="grid grid-cols-2 gap-4">
+            <Foto
+              src={boekenCirkel.url}
+              alt="Boeken van de boekenclub in een cirkel gelegd"
+              ratio="aspect-[3/4]"
+            />
+            <Foto
+              src={thrillersTafel.url}
+              alt="Thrillers op tafel in het café, klaar om besproken te worden"
+              ratio="aspect-[3/4]"
+              className="mt-8"
+            />
+          </div>
           <div>
             <Kop sub={TWEE_CLUBJES.tekst}>{TWEE_CLUBJES.titel}</Kop>
           </div>
@@ -125,19 +133,28 @@ function LidWorden() {
       {/* HOE HET WERKT */}
       <Sectie className="bg-secondary/50">
         <Kop sub="In vier simpele stapjes zit je aan tafel.">Hoe het werkt</Kop>
-        <ol className="mt-10 grid gap-5 md:grid-cols-2">
-          {STAPPEN.map((stap, i) => (
-            <li key={stap}>
-              <Kaart className="flex h-full items-start gap-4">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-primary font-display text-lg font-bold text-primary-foreground">
-                  {i + 1}
-                </span>
-                <p className="pt-1.5">{stap}</p>
-              </Kaart>
-            </li>
-          ))}
-        </ol>
+        <div className="mt-10 grid gap-10 lg:grid-cols-[1.1fr_1fr]">
+          <ol className="grid gap-5">
+            {STAPPEN.map((stap, i) => (
+              <li key={stap}>
+                <Kaart className="flex h-full items-start gap-4">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-primary font-display text-lg font-bold text-primary-foreground">
+                    {i + 1}
+                  </span>
+                  <p className="pt-1.5">{stap}</p>
+                </Kaart>
+              </li>
+            ))}
+          </ol>
+          <Foto
+            src={douweEgberts.url}
+            alt="Het Douwe Egberts café in Den Bosch waar de boekenclub samenkomt"
+            bijschrift="Onze vaste stek: Douwe Egberts in Den Bosch."
+            ratio="aspect-[3/4]"
+          />
+        </div>
       </Sectie>
+
 
       {/* WAT JE KRIJGT */}
       <Sectie>
