@@ -3,10 +3,12 @@ import { KnopLink, Kaart, Sectie, Kop, Foto, Label } from "@/components/ui-basis
 import { BonenDivider, KoffieBoon, KoffieKop } from "@/components/koffie";
 import { ContactCta } from "@/components/ContactCta";
 import { Formulier, type Veld } from "@/components/Formulier";
+import { MediaSpeler } from "@/components/MediaSpeler";
 
 import groepsfoto from "@/assets/groepsfoto.jpeg.asset.json";
 import boekenCirkel from "@/assets/boeken-cirkel.jpeg.asset.json";
-import austenKoffie from "@/assets/austen-koffie.jpeg.asset.json";
+import thrillersTafel from "@/assets/thrillers-tafel.jpeg.asset.json";
+import douweEgberts from "@/assets/douwe-egberts-pand.jpeg.asset.json";
 
 /* ============================================================
    TEKSTEN — LID WORDEN
@@ -172,29 +174,9 @@ function LidWorden() {
             </div>
           </div>
 
-          {/*
-            PLAATSHOUDER VIDEO / REEL
-            De eigenaar uploadt hier later een korte reel met achtergrondmuziek.
-            Vervang dit blok dan door bijvoorbeeld:
-            <video src="/reel.mp4" controls playsInline className="w-full rounded-3xl" />
-          */}
-          <div className="relative flex aspect-video items-center justify-center overflow-hidden rounded-3xl border-4 border-dashed border-latte bg-card text-center">
-            <img
-              src={austenKoffie.url}
-              alt=""
-              aria-hidden="true"
-              className="absolute inset-0 h-full w-full object-cover opacity-25"
-            />
-            <div className="relative px-6">
-              <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lift">
-                ▶
-              </span>
-              <p className="mt-4 font-display text-lg font-bold">Video / reel volgt binnenkort</p>
-              <p className="text-sm text-muted-foreground">
-                Plaatshouder — hier komt de reel (met achtergrondmuziek).
-              </p>
-            </div>
-          </div>
+          {/* VIDEO / REEL van de club */}
+          <MediaSpeler />
+
         </div>
       </Sectie>
 
