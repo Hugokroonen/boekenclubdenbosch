@@ -3,10 +3,12 @@ import { KnopLink, Kaart, Sectie, Kop, Foto, Label } from "@/components/ui-basis
 import { BonenDivider, KoffieBoon, KoffieKop } from "@/components/koffie";
 import { ContactCta } from "@/components/ContactCta";
 import { Formulier, type Veld } from "@/components/Formulier";
+import { MediaSpeler } from "@/components/MediaSpeler";
 
 import groepsfoto from "@/assets/groepsfoto.jpeg.asset.json";
 import boekenCirkel from "@/assets/boeken-cirkel.jpeg.asset.json";
-import austenKoffie from "@/assets/austen-koffie.jpeg.asset.json";
+import thrillersTafel from "@/assets/thrillers-tafel.jpeg.asset.json";
+import douweEgberts from "@/assets/douwe-egberts-pand.jpeg.asset.json";
 
 /* ============================================================
    TEKSTEN — LID WORDEN
@@ -109,11 +111,19 @@ function LidWorden() {
       {/* TWEE CLUBJES */}
       <Sectie>
         <div className="grid items-center gap-10 lg:grid-cols-2">
-          <Foto
-            src={boekenCirkel.url}
-            alt="Boeken van de boekenclub in een cirkel gelegd"
-            ratio="aspect-[4/3]"
-          />
+          <div className="grid grid-cols-2 gap-4">
+            <Foto
+              src={boekenCirkel.url}
+              alt="Boeken van de boekenclub in een cirkel gelegd"
+              ratio="aspect-[3/4]"
+            />
+            <Foto
+              src={thrillersTafel.url}
+              alt="Thrillers op tafel in het café, klaar om besproken te worden"
+              ratio="aspect-[3/4]"
+              className="mt-8"
+            />
+          </div>
           <div>
             <Kop sub={TWEE_CLUBJES.tekst}>{TWEE_CLUBJES.titel}</Kop>
           </div>
@@ -123,19 +133,28 @@ function LidWorden() {
       {/* HOE HET WERKT */}
       <Sectie className="bg-secondary/50">
         <Kop sub="In vier simpele stapjes zit je aan tafel.">Hoe het werkt</Kop>
-        <ol className="mt-10 grid gap-5 md:grid-cols-2">
-          {STAPPEN.map((stap, i) => (
-            <li key={stap}>
-              <Kaart className="flex h-full items-start gap-4">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-primary font-display text-lg font-bold text-primary-foreground">
-                  {i + 1}
-                </span>
-                <p className="pt-1.5">{stap}</p>
-              </Kaart>
-            </li>
-          ))}
-        </ol>
+        <div className="mt-10 grid gap-10 lg:grid-cols-[1.1fr_1fr]">
+          <ol className="grid gap-5">
+            {STAPPEN.map((stap, i) => (
+              <li key={stap}>
+                <Kaart className="flex h-full items-start gap-4">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-primary font-display text-lg font-bold text-primary-foreground">
+                    {i + 1}
+                  </span>
+                  <p className="pt-1.5">{stap}</p>
+                </Kaart>
+              </li>
+            ))}
+          </ol>
+          <Foto
+            src={douweEgberts.url}
+            alt="Het Douwe Egberts café in Den Bosch waar de boekenclub samenkomt"
+            bijschrift="Onze vaste stek: Douwe Egberts in Den Bosch."
+            ratio="aspect-[3/4]"
+          />
+        </div>
       </Sectie>
+
 
       {/* WAT JE KRIJGT */}
       <Sectie>
@@ -172,29 +191,9 @@ function LidWorden() {
             </div>
           </div>
 
-          {/*
-            PLAATSHOUDER VIDEO / REEL
-            De eigenaar uploadt hier later een korte reel met achtergrondmuziek.
-            Vervang dit blok dan door bijvoorbeeld:
-            <video src="/reel.mp4" controls playsInline className="w-full rounded-3xl" />
-          */}
-          <div className="relative flex aspect-video items-center justify-center overflow-hidden rounded-3xl border-4 border-dashed border-latte bg-card text-center">
-            <img
-              src={austenKoffie.url}
-              alt=""
-              aria-hidden="true"
-              className="absolute inset-0 h-full w-full object-cover opacity-25"
-            />
-            <div className="relative px-6">
-              <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lift">
-                ▶
-              </span>
-              <p className="mt-4 font-display text-lg font-bold">Video / reel volgt binnenkort</p>
-              <p className="text-sm text-muted-foreground">
-                Plaatshouder — hier komt de reel (met achtergrondmuziek).
-              </p>
-            </div>
-          </div>
+          {/* VIDEO / REEL van de club */}
+          <MediaSpeler />
+
         </div>
       </Sectie>
 

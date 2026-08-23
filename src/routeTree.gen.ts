@@ -10,11 +10,25 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BeginnendAuteurRouteImport } from './routes/beginnend-auteur'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as LidWordenRouteImport } from './routes/lid-worden'
+import { Route as OverOnsRouteImport } from './routes/over-ons'
+import { Route as SamenwerkingenRouteImport } from './routes/samenwerkingen'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BeginnendAuteurRoute = BeginnendAuteurRouteImport.update({
+  id: '/beginnend-auteur',
+  path: '/beginnend-auteur',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LidWordenRoute = LidWordenRouteImport.update({
@@ -22,31 +36,76 @@ const LidWordenRoute = LidWordenRouteImport.update({
   path: '/lid-worden',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OverOnsRoute = OverOnsRouteImport.update({
+  id: '/over-ons',
+  path: '/over-ons',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SamenwerkingenRoute = SamenwerkingenRouteImport.update({
+  id: '/samenwerkingen',
+  path: '/samenwerkingen',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/beginnend-auteur': typeof BeginnendAuteurRoute
+  '/contact': typeof ContactRoute
   '/lid-worden': typeof LidWordenRoute
+  '/over-ons': typeof OverOnsRoute
+  '/samenwerkingen': typeof SamenwerkingenRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/beginnend-auteur': typeof BeginnendAuteurRoute
+  '/contact': typeof ContactRoute
   '/lid-worden': typeof LidWordenRoute
+  '/over-ons': typeof OverOnsRoute
+  '/samenwerkingen': typeof SamenwerkingenRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/beginnend-auteur': typeof BeginnendAuteurRoute
+  '/contact': typeof ContactRoute
   '/lid-worden': typeof LidWordenRoute
+  '/over-ons': typeof OverOnsRoute
+  '/samenwerkingen': typeof SamenwerkingenRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/lid-worden'
+  fullPaths:
+    | '/'
+    | '/beginnend-auteur'
+    | '/contact'
+    | '/lid-worden'
+    | '/over-ons'
+    | '/samenwerkingen'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/lid-worden'
-  id: '__root__' | '/' | '/lid-worden'
+  to:
+    | '/'
+    | '/beginnend-auteur'
+    | '/contact'
+    | '/lid-worden'
+    | '/over-ons'
+    | '/samenwerkingen'
+  id:
+    | '__root__'
+    | '/'
+    | '/beginnend-auteur'
+    | '/contact'
+    | '/lid-worden'
+    | '/over-ons'
+    | '/samenwerkingen'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BeginnendAuteurRoute: typeof BeginnendAuteurRoute
+  ContactRoute: typeof ContactRoute
   LidWordenRoute: typeof LidWordenRoute
+  OverOnsRoute: typeof OverOnsRoute
+  SamenwerkingenRoute: typeof SamenwerkingenRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -58,6 +117,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/beginnend-auteur': {
+      id: '/beginnend-auteur'
+      path: '/beginnend-auteur'
+      fullPath: '/beginnend-auteur'
+      preLoaderRoute: typeof BeginnendAuteurRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/lid-worden': {
       id: '/lid-worden'
       path: '/lid-worden'
@@ -65,12 +138,30 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LidWordenRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/over-ons': {
+      id: '/over-ons'
+      path: '/over-ons'
+      fullPath: '/over-ons'
+      preLoaderRoute: typeof OverOnsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/samenwerkingen': {
+      id: '/samenwerkingen'
+      path: '/samenwerkingen'
+      fullPath: '/samenwerkingen'
+      preLoaderRoute: typeof SamenwerkingenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BeginnendAuteurRoute: BeginnendAuteurRoute,
+  ContactRoute: ContactRoute,
   LidWordenRoute: LidWordenRoute,
+  OverOnsRoute: OverOnsRoute,
+  SamenwerkingenRoute: SamenwerkingenRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
