@@ -7,6 +7,9 @@ import boekKoffie from "@/assets/boek-koffie.jpeg.asset.json";
 import groepsfoto from "@/assets/groepsfoto.jpeg.asset.json";
 import eigenaarPortret from "@/assets/eigenaar-portret.jpeg.asset.json";
 import koffieBoekenlegger from "@/assets/koffie-boekenlegger.jpeg.asset.json";
+import douweEgberts from "@/assets/douwe-egberts-pand.jpeg.asset.json";
+import koffieZeepaardje from "@/assets/koffie-zeepaardje.jpeg.asset.json";
+import tweeLattes from "@/assets/twee-lattes.jpeg.asset.json";
 
 /* ============================================================
    TEKSTEN — HOME
@@ -198,7 +201,26 @@ function Home() {
             </ul>
           </div>
         </div>
+
+        <div className="mt-10 grid gap-6 sm:grid-cols-3">
+          <Foto
+            src={douweEgberts.url}
+            alt="Het Douwe Egberts café in Den Bosch waar de club samenkomt"
+            ratio="aspect-[4/3]"
+          />
+          <Foto
+            src={koffieZeepaardje.url}
+            alt="Latte art naast twee romans van de boekenclub"
+            ratio="aspect-[4/3]"
+          />
+          <Foto
+            src={tweeLattes.url}
+            alt="Twee koffies en twee boeken op een marmeren tafel"
+            ratio="aspect-[4/3]"
+          />
+        </div>
       </Sectie>
+
 
       <ContactCta />
     </>
