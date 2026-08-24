@@ -58,12 +58,15 @@ export function Knop({
 export function Kaart({
   children,
   className = "",
+  id,
 }: {
   children: ReactNode;
   className?: string;
+  id?: string;
 }) {
   return (
     <div
+      id={id}
       className={`rounded-3xl border border-border bg-card p-7 shadow-soft ${className}`}
     >
       {children}
