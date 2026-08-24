@@ -61,7 +61,7 @@ export function Formulier({
         return;
       }
     }
-    if (!isGeldigEmail(waarden.email ?? "")) {
+    if (!isGeldigEmail(waarden["email"] ?? "")) {
       setFout("Controleer je e-mailadres even, die lijkt niet te kloppen.");
       return;
     }
@@ -70,16 +70,16 @@ export function Formulier({
     try {
       await verstuurInzending({
         type,
-        naam: (waarden.naam ?? "").trim(),
-        email: (waarden.email ?? "").trim(),
-        leeftijd: waarden.leeftijd,
-        genres: waarden.genres,
-        boek_titel: waarden.boek_titel,
-        boek_omschrijving: waarden.boek_omschrijving,
-        aantal_paginas: waarden.aantal_paginas,
-        interesse: waarden.interesse,
-        samenwerking: waarden.samenwerking,
-        bericht: waarden.bericht,
+        naam: (waarden["naam"] ?? "").trim(),
+        email: (waarden["email"] ?? "").trim(),
+        leeftijd: waarden["leeftijd"] ?? "",
+        genres: waarden["genres"] ?? "",
+        boek_titel: waarden["boek_titel"] ?? "",
+        boek_omschrijving: waarden["boek_omschrijving"] ?? "",
+        aantal_paginas: waarden["aantal_paginas"] ?? "",
+        interesse: waarden["interesse"] ?? "",
+        samenwerking: waarden["samenwerking"] ?? "",
+        bericht: waarden["bericht"] ?? "",
       });
       setKlaar(true);
     } catch {
@@ -91,7 +91,8 @@ export function Formulier({
 
   if (klaar) {
     return (
-      <Kaart id={id} className="text-center">
+      <Kaart {...(id ? { id } : {})} className="text-center">
+
         <KoffieKop className="mx-auto h-14 w-14 text-primary" />
         <h3 className="mt-4 text-2xl">{succestekst}</h3>
         <p className="mt-2 text-muted-foreground">

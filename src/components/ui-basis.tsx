@@ -31,7 +31,7 @@ export function KnopLink({
   return (
     <Link
       to={to}
-      hash={hash}
+      {...(hash ? { hash } : {})}
       className={`${knopBasis} ${knopStijlen[variant]} ${className}`}
     >
       {children}
