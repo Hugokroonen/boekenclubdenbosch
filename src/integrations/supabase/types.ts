@@ -17,48 +17,57 @@ export type Database = {
       inzendingen: {
         Row: {
           aantal_paginas: string | null
+          achternaam: string | null
           bericht: string | null
           boek_omschrijving: string | null
           boek_titel: string | null
           created_at: string
-          email: string
+          email: string | null
           genres: string | null
           id: string
           interesse: string | null
           leeftijd: string | null
-          naam: string
+          naam: string | null
           samenwerking: string | null
+          telefoon: string | null
           type: string
+          voornaam: string | null
         }
         Insert: {
           aantal_paginas?: string | null
+          achternaam?: string | null
           bericht?: string | null
           boek_omschrijving?: string | null
           boek_titel?: string | null
           created_at?: string
-          email: string
+          email?: string | null
           genres?: string | null
           id?: string
           interesse?: string | null
           leeftijd?: string | null
-          naam: string
+          naam?: string | null
           samenwerking?: string | null
+          telefoon?: string | null
           type: string
+          voornaam?: string | null
         }
         Update: {
           aantal_paginas?: string | null
+          achternaam?: string | null
           bericht?: string | null
           boek_omschrijving?: string | null
           boek_titel?: string | null
           created_at?: string
-          email?: string
+          email?: string | null
           genres?: string | null
           id?: string
           interesse?: string | null
           leeftijd?: string | null
-          naam?: string
+          naam?: string | null
           samenwerking?: string | null
+          telefoon?: string | null
           type?: string
+          voornaam?: string | null
         }
         Relationships: []
       }
