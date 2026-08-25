@@ -61,26 +61,21 @@ export function Formulier({
         return;
       }
     }
-    if (!isGeldigEmail(waarden["email"] ?? "")) {
+    // E-mail alleen controleren als dit formulier een e-mailveld heeft.
+    const heeftEmail = velden.some((v) => v.naam === "email");
+    if (heeftEmail && !isGeldigEmail(waarden["email"] ?? "")) {
       setFout("Controleer je e-mailadres even, die lijkt niet te kloppen.");
       return;
     }
 
     setBezig(true);
     try {
-      await verstuurInzending({
-        type,
-        naam: (waarden["naam"] ?? "").trim(),
-        email: (waarden["email"] ?? "").trim(),
-        leeftijd: waarden["leeftijd"] ?? "",
-        genres: waarden["genres"] ?? "",
-        boek_titel: waarden["boek_titel"] ?? "",
-        boek_omschrijving: waarden["boek_omschrijving"] ?? "",
-        aantal_paginas: waarden["aantal_paginas"] ?? "",
-        interesse: waarden["interesse"] ?? "",
-        samenwerking: waarden["samenwerking"] ?? "",
-        bericht: waarden["bericht"] ?? "",
-      });
+      const inzending: Inzending = { type };
+      for (const veld of velden) {
+        const waarde = (waarden[veld.naam] ?? "").trim();
+        if (waarde) (inzending as Record<string, string>)[veld.naam as string] = waarde;
+      }
+      await verstuurInzending(inzending);
       setKlaar(true);
     } catch {
       setFout("Oeps, er ging iets mis. Probeer het zo nog eens of mail ons direct.");
