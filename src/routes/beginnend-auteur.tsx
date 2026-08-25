@@ -14,32 +14,37 @@ import eigenaarAuteur from "@/assets/eigenaar-auteur.jpeg.asset.json";
 const INTRO = {
   titel: "Beginnend auteur",
   tekst:
-    "Heb jij zelf een manuscript of boek geschreven dat nog niet is uitgegeven, en ben je benieuwd naar de eerlijke, ongefilterde mening van échte lezers? Dan ben je bij onze boekenclub aan het juiste adres. Wij lezen jouw boek graag proef en geven je oprechte feedback.",
+    "Heb jij een boek geschreven? Supergaaf! Dan ben je vast razend benieuwd wat lezers er écht van vinden… Onze proeflezers lezen jouw boek grondig en geven je oprechte feedback.",
 };
 
 const HOE_HET_WERKT = {
   titel: "Hoe het werkt",
   tekst:
-    "We lezen bij voorkeur een fysiek exemplaar, maar dat is geen must — laat het ons weten wat handig is. Na het lezen delen we onze eerlijke mening met je.",
+    "We lezen bij voorkeur een fysiek exemplaar. Laat ons weten of je feedback wil ontvangen op bepaalde onderdelen of dat we er juist helemaal blanco in moeten stappen. Binnen 9 weken heb je jouw feedback binnen.",
 };
 
 const PRIJS = {
   titel: "Wat kost het?",
   tekst:
-    "Proeflezen kost € 99 (exclusief btw) — een vriendelijke introductieprijs. Proeflezen kost onze lezers al gauw zo'n 7 uur van hun tijd, dus dit is echt geen verdienmodel maar een eerlijke vergoeding. Eventueel bepalen we de prijs op basis van het aantal woorden.",
+    "Om jou van goede feedback te voorzien, nemen we de tijd om je boek aandachtig te lezen en een heldere review te formuleren. Daarvoor vragen we een vergoeding van € 99 (excl. btw). Daarbij is een promotie op onze Instagrampagina inbegrepen!",
 };
 
 const CTA_TEKST =
-  "Neem contact op via het formulier — ook als je nog vragen hebt. We staan altijd voor je klaar, geen gedoe.";
+  "Heb je vragen over proeflezen? Of heb je ons eigenlijk nodig voor iets anders? Stuur gewoon een berichtje!";
 
 /** Velden van het auteursformulier. */
 const AUTEUR_VELDEN: Veld[] = [
   { naam: "naam", label: "Naam", verplicht: true },
   { naam: "email", label: "E-mailadres", type: "email", verplicht: true },
-  { naam: "genres", label: "Genre" },
+  { naam: "genres", label: "Genre", verplicht: true },
   { naam: "boek_titel", label: "Titel van het boek" },
-  { naam: "aantal_paginas", label: "Aantal pagina's" },
-  { naam: "boek_omschrijving", label: "Korte omschrijving van het boek", type: "textarea" },
+  { naam: "aantal_paginas", label: "Aantal pagina's", verplicht: true },
+  {
+    naam: "boek_omschrijving",
+    label: "Korte omschrijving van het boek",
+    type: "textarea",
+    verplicht: true,
+  },
 ];
 
 export const Route = createFileRoute("/beginnend-auteur")({
@@ -49,12 +54,12 @@ export const Route = createFileRoute("/beginnend-auteur")({
       {
         name: "description",
         content:
-          "Laat je manuscript proeflezen door echte lezers van Boekenclub Den Bosch. Eerlijke, ongefilterde feedback op je boek — laagdrempelig en persoonlijk.",
+          "Laat je boek proeflezen door echte lezers van Boekenclub Den Bosch. Oprechte feedback binnen 9 weken, inclusief promotie op onze Instagrampagina.",
       },
       { property: "og:title", content: "Boekenclub Den Bosch | Beginnend auteur" },
       {
         property: "og:description",
-        content: "Proeflezen door echte lezers: eerlijke feedback op jouw manuscript.",
+        content: "Proeflezen door echte lezers: oprechte feedback op jouw boek.",
       },
     ],
   }),
@@ -75,13 +80,11 @@ function BeginnendAuteur() {
             <p className="mt-5 text-lg text-muted-foreground">{INTRO.tekst}</p>
             <div className="mt-8 flex flex-wrap gap-4">
               <KnopLink to="/beginnend-auteur" hash="auteursformulier">
-                Stuur je boek in
-              </KnopLink>
-              <KnopLink to="/contact" variant="lijn">
-                Neem contact op
+                Boek insturen
               </KnopLink>
             </div>
           </div>
+          {/* FOTO BEGINNEND AUTEUR 1 — wordt vervangen zodra de nieuwe foto er is */}
           <Foto
             src={boekKoffie.url}
             alt="Een boek en een cappuccino op tafel"
@@ -109,20 +112,16 @@ function BeginnendAuteur() {
 
       <Sectie className="bg-secondary/50">
         <div className="grid items-center gap-10 lg:grid-cols-2">
+          {/* FOTO BEGINNEND AUTEUR 3 — wordt vervangen zodra de nieuwe foto er is */}
           <Foto
             src={eigenaarAuteur.url}
             alt="Persoonlijk contact met een auteur bij de boekenclub"
             ratio="aspect-[4/3]"
           />
           <div>
-            <Kop sub={CTA_TEKST}>Even sparren? Graag!</Kop>
+            <Kop sub={CTA_TEKST}>Even sparren?</Kop>
             <div className="mt-7 flex flex-wrap gap-4">
-              <KnopLink to="/beginnend-auteur" hash="auteursformulier">
-                Naar het formulier
-              </KnopLink>
-              <KnopLink to="/contact" variant="zacht">
-                Neem contact op
-              </KnopLink>
+              <KnopLink to="/contact">Contact opnemen</KnopLink>
             </div>
           </div>
         </div>
@@ -132,7 +131,7 @@ function BeginnendAuteur() {
         <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr]">
           <div>
             <Kop sub="Vertel kort iets over je boek, dan laten we je snel weten wat mogelijk is.">
-              Formulier voor beginnend auteur
+              Boek insturen
             </Kop>
             <div className="mt-8">
               <Formulier
@@ -154,7 +153,7 @@ function BeginnendAuteur() {
 
       <ContactCta
         titel="Nog vragen over proeflezen?"
-        tekst="Stel ze gerust — we denken graag met je mee."
+        tekst="Stel ze gerust!"
         primair={{ label: "Over ons", to: "/over-ons" }}
       />
     </>
