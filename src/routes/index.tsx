@@ -2,10 +2,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { KnopLink, Kaart, Sectie, Kop, Foto, Label } from "@/components/ui-basis";
 import { BonenDivider, KoffieBoon, KoffieKop, KoffieStoom, BoekIcoon } from "@/components/koffie";
 import { ContactCta } from "@/components/ContactCta";
+import { MediaSpeler } from "@/components/MediaSpeler";
 
 import boekKoffie from "@/assets/boek-koffie.jpeg.asset.json";
 import groepsfoto from "@/assets/groepsfoto.jpeg.asset.json";
-import eigenaarPortret from "@/assets/eigenaar-portret.jpeg.asset.json";
 import koffieBoekenlegger from "@/assets/koffie-boekenlegger.jpeg.asset.json";
 import douweEgberts from "@/assets/douwe-egberts-pand.jpeg.asset.json";
 import koffieZeepaardje from "@/assets/koffie-zeepaardje.jpeg.asset.json";
@@ -20,27 +20,27 @@ const HERO = {
   label: "Boekenclub in Den Bosch ☕",
   titel: "Boekenclub Den Bosch",
   subtitel:
-    "Samen lezen, samen borrelen. Iedere paar weken een goed boek en een lekkere koffie — informeel, gezellig en zonder poespas.",
-  knopPrimair: "Word lid",
+    "Eens een ander boek lezen en je ongezouten mening erover geven? Of zoek je juist een stok achter de deur? Meld je aan bij Boekenclub Den Bosch en kom terecht in een boekenclub met andere gezellige meiden!",
+  knopPrimair: "Aanmelden",
   knopSecundair: "Over ons",
 };
 
 const DIENSTEN = [
   {
     titel: "Lid worden",
-    tekst: "Sluit je aan bij een gezellige boekenclub in Den Bosch.",
+    tekst: "Ben je tussen de 20 - 40 jaar? Sluit je aan bij de meiden van Boekenclub Den Bosch.",
     to: "/lid-worden",
     kleur: "bg-primary text-primary-foreground",
   },
   {
     titel: "Beginnend auteur",
-    tekst: "Zelf een boek geschreven? Laat het door echte lezers proeflezen.",
+    tekst: "Zelf een boek geschreven? Pak je kans en laat het door een boekenclub proeflezen.",
     to: "/beginnend-auteur",
     kleur: "bg-accent text-accent-foreground",
   },
   {
     titel: "Samenwerkingen",
-    tekst: "Koffiezaak of boekhandel? Denk met ons mee.",
+    tekst: "Koffiezaak of boekhandel? Steun onze boekenclub!",
     to: "/samenwerkingen",
     kleur: "bg-berry text-berry-foreground",
   },
@@ -49,7 +49,7 @@ const DIENSTEN = [
 const OVER_ONS_KORT = {
   titel: "Wie zijn wij?",
   tekst:
-    "Boekenclub Den Bosch is ontstaan uit een simpele liefde voor lezen en gezelligheid. Iedere paar weken komen we samen in een gezellig café om samen een boek te bespreken — informeel, laagdrempelig en altijd met een lekkere koffie erbij.",
+    "Boekenclub Den Bosch is ontstaan vanuit liefde voor lezen, koffie én Den Bosch. Want hoe leuk is het om jouw loeiharde kritiek of lofzang met iemand te delen en die daar nog een schepje bovenop doet?",
   link: "Lees meer over ons",
 };
 
@@ -60,7 +60,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Een gezellige, informele boekenclub in Den Bosch. Iedere paar weken samen een boek bespreken met een lekkere koffie erbij. Word lid, laat je boek proeflezen of werk met ons samen.",
+          "Een gezellige, informele boekenclub in Den Bosch. Iedere 7 weken samen een boek bespreken met een lekkere koffie erbij. Word lid, laat je boek proeflezen of werk met ons samen.",
       },
       { property: "og:title", content: "Boekenclub Den Bosch | Samen lezen in Den Bosch" },
       {
@@ -88,7 +88,9 @@ function Home() {
               {HERO.subtitel}
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <KnopLink to="/lid-worden">{HERO.knopPrimair}</KnopLink>
+              <KnopLink to="/lid-worden" hash="aanmelden">
+                {HERO.knopPrimair}
+              </KnopLink>
               <KnopLink to="/over-ons" variant="lijn">
                 {HERO.knopSecundair}
               </KnopLink>
@@ -114,7 +116,7 @@ function Home() {
 
       {/* DRIE DIENSTEN */}
       <Sectie>
-        <Kop sub="Kies waar jij nieuwsgierig naar bent — alles mag laagdrempelig.">
+        <Kop sub="Boekenwurm, schrijver, horecazaak of iets daartussen in? Klik en surf naar jouw volgende hoofdstuk!">
           Dit doen we
         </Kop>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -149,27 +151,36 @@ function Home() {
       {/* OVER ONS (kort) */}
       <Sectie className="bg-secondary/50">
         <div className="grid items-center gap-10 lg:grid-cols-2">
-          <div className="grid grid-cols-2 gap-4">
-            <Foto
-              src={groepsfoto.url}
-              alt="De leden van Boekenclub Den Bosch samen in het café"
-              ratio="aspect-[3/4]"
-            />
-            <Foto
-              src={eigenaarPortret.url}
-              alt="De oprichter van Boekenclub Den Bosch met een auteur"
-              ratio="aspect-[3/4]"
-              className="mt-8"
-            />
-          </div>
+          <Foto
+            src={groepsfoto.url}
+            alt="De leden van Boekenclub Den Bosch samen in het café"
+            ratio="aspect-[4/3]"
+          />
           <div>
             <Kop sub={OVER_ONS_KORT.tekst}>{OVER_ONS_KORT.titel}</Kop>
             <div className="mt-7 flex flex-wrap gap-4">
               <KnopLink to="/over-ons" variant="primair">
                 {OVER_ONS_KORT.link}
               </KnopLink>
-              <KnopLink to="/contact" variant="zacht">
-                Neem contact op
+              <KnopLink to="/lid-worden" variant="zacht">
+                Lid worden
+              </KnopLink>
+            </div>
+          </div>
+        </div>
+      </Sectie>
+
+      {/* DE REEL VAN DE CLUB */}
+      <Sectie>
+        <div className="grid items-center gap-10 lg:grid-cols-2">
+          <MediaSpeler />
+          <div>
+            <Kop sub="Zo ziet een avondje Boekenclub Den Bosch er ongeveer uit.">
+              Even sfeer proeven
+            </Kop>
+            <div className="mt-7">
+              <KnopLink to="/lid-worden" hash="aanmelden">
+                Aanmelden
               </KnopLink>
             </div>
           </div>
@@ -184,13 +195,13 @@ function Home() {
             ratio="aspect-[16/10]"
           />
           <div>
-            <Kop sub="Geen literaire verplichtingen: gewoon vertellen wat je van het boek vond, met een kop koffie erbij.">
-              Lezen mag ook gewoon leuk zijn
+            <Kop sub="Karakterontwikkeling en tijdstructuur? Wij nemen het allemaal niet zo literair. 😊 Gewoon met een latte caramel in de hand vertellen wat je van het boek vond!">
+              Gewoon lekker lezen
             </Kop>
             <ul className="mt-6 grid gap-3">
               {[
                 "Twee clubjes: romans of thrillers",
-                "Iedere 6 à 7 weken samen bij Douwe Egberts",
+                "Iedere 7 weken samenkomen bij Douwe Egberts",
                 "Samen kiezen we het volgende boek",
               ].map((r) => (
                 <li key={r} className="flex items-center gap-3">
@@ -220,7 +231,6 @@ function Home() {
           />
         </div>
       </Sectie>
-
 
       <ContactCta />
     </>

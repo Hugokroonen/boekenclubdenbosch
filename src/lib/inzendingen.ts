@@ -4,8 +4,11 @@ export type InzendingType = "lid" | "auteur" | "contact";
 
 export type Inzending = {
   type: InzendingType;
-  naam: string;
-  email: string;
+  naam?: string;
+  voornaam?: string;
+  achternaam?: string;
+  telefoon?: string;
+  email?: string;
   leeftijd?: string;
   genres?: string;
   boek_titel?: string;

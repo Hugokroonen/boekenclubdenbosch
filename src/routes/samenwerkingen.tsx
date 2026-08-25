@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { KnopLink, Kaart, Sectie, Kop, Foto, Label } from "@/components/ui-basis";
 import { BonenDivider, KoffieKop, BoekIcoon, KoffieBoon } from "@/components/koffie";
 import { ContactCta } from "@/components/ContactCta";
@@ -14,26 +14,25 @@ import boekenCollage from "@/assets/boeken-collage.jpeg.asset.json";
 const INTRO = {
   titel: "Samenwerkingen",
   tekst:
-    "Lokale betrokkenheid vinden wij ontzettend belangrijk. Als Boekenclub Den Bosch komen we altijd samen in een gezellige koffiezaak of op een leuke plek om over onze boeken te praten. De club groeit gestaag: inmiddels zijn we al met 20 leden, verspreid over meerdere clubjes die iedere 7 weken samenkomen.",
+    "Lokale betrokkenheid vinden wij ontzettend belangrijk. Daarom komen we het liefst iedere 7 weken samen in een zaak van een Bossche ondernemer en scoren we onze boeken bij een lokale boekhandel. Help jij ons daarbij?",
 };
 
 const KOFFIEZAKEN = {
   titel: "Voor koffiezaken",
   tekst:
-    "We zijn altijd op zoek naar een leuke koffiezaak die ons verwelkomt. In ruil daarvoor komt er iedere 7 weken minimaal 10 man langs voor een gezellige avond borrelen, én krijg je gratis promotie op onze social media — onder onze huidige leden, nieuwe leden en iedereen die het leuk vindt om een boekenclub te volgen. Lijkt je een samenwerking wat? Neem contact op!",
+    "Onze club telt 20+ leden en blijft groeien. Iedere 4 weken komen we samen in een café om over boeken te praten. Word jij ons vaste stekje? Dan is jouw horecazaak structureel gevuld met 10 koffieleuten. En there's more: elke keer als wij langs zijn geweest, wordt jouw koffiezaak gepromoot op onze Instagrampagina.",
 };
 
 const BOEKHANDELS = {
   titel: "Voor boekhandels",
   tekst:
-    "We lezen met maar liefst 20 man steeds hetzelfde boek. Die boeken kopen we nu in via verschillende platformen, maar we kopen ze net zo graag via één lokale boekhandel. Voor jou interessant: een doorlopende stroom aan boekverkoop in grotere aantallen. Wij staan open voor een samenwerking met korting op boeken — dan profiteren onze lezers én jij. Interesse? Laat het ons weten.",
+    "Bij ons leest 20+ man tegelijkertijd hetzelfde boek. De een scoort 'm op Bol.com, de ander via Vinted. Maar we kunnen het ook met z'n allen bij jou inkopen! Zo ontvangt jouw boekhandel structureel iedere 4 weken een bestelling van circa 10 boeken. En dat aantal zal de komende tijd alleen maar oplopen, want we blijven groeien!",
 };
 
 const OVERIG = {
   titel: "Overige samenwerkingen",
-  voor: "Heb je een andere vraag of samenwerking in gedachten? Of ben je bijvoorbeeld beginnend auteur? ",
-  link: "Klik dan hier",
-  na: " om meer te lezen. En ben je gewoon benieuwd wie wij zijn en waarom we lezen zo belangrijk vinden? Neem gerust contact op — we zijn heel benaderbaar.",
+  tekst:
+    "Heb je een andere samenwerking in gedachten? Of ben je auteur en wil je eens aansluiten? Stuur ons een berichtje!",
 };
 
 export const Route = createFileRoute("/samenwerkingen")({
@@ -43,7 +42,7 @@ export const Route = createFileRoute("/samenwerkingen")({
       {
         name: "description",
         content:
-          "Koffiezaak of boekhandel in Den Bosch? Boekenclub Den Bosch werkt graag lokaal samen: iedere 7 weken 10+ lezers over de vloer en gratis promotie.",
+          "Koffiezaak of boekhandel in Den Bosch? Boekenclub Den Bosch werkt graag lokaal samen: iedere 7 weken 10+ lezers over de vloer en gratis promotie op Instagram.",
       },
       { property: "og:title", content: "Boekenclub Den Bosch | Samenwerkingen" },
       {
@@ -110,6 +109,7 @@ function Samenwerkingen() {
           </Kaart>
         </div>
 
+        {/* FOTO SAMENWERKINGEN 1 & 2 — worden vervangen zodra de nieuwe foto's er zijn */}
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           <Foto
             src={tweeLattes.url}
@@ -128,19 +128,13 @@ function Samenwerkingen() {
         <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.2fr]">
           <Foto
             src={eigenaarPortret.url}
-            alt="De oprichter van Boekenclub Den Bosch"
+            alt="De oprichters van Boekenclub Den Bosch"
             bijschrift="Even persoonlijk: je praat gewoon met ons, niet met een organisatie."
             ratio="aspect-[4/5]"
           />
           <div>
             <Kop>{OVERIG.titel}</Kop>
-            <p className="mt-3 text-lg text-muted-foreground">
-              {OVERIG.voor}
-              <Link to="/beginnend-auteur" className="font-bold text-primary underline">
-                {OVERIG.link}
-              </Link>
-              {OVERIG.na}
-            </p>
+            <p className="mt-3 text-lg text-muted-foreground">{OVERIG.tekst}</p>
             <div className="mt-7">
               <KnopLink to="/contact">Neem contact op</KnopLink>
             </div>
@@ -150,8 +144,8 @@ function Samenwerkingen() {
 
       <ContactCta
         titel="Samen iets leuks opzetten?"
-        tekst="Eén berichtje en we plannen zo een kop koffie."
-        primair={{ label: "Word lid", to: "/lid-worden" }}
+        tekst="Stuur ons een berichtje; dan plannen we een kop koffie."
+        primair={null}
       />
     </>
   );
