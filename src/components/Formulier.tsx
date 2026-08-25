@@ -70,10 +70,10 @@ export function Formulier({
 
     setBezig(true);
     try {
-      const inzending: Inzending = { type };
+      const inzending = { type } as Inzending & Record<string, string>;
       for (const veld of velden) {
         const waarde = (waarden[veld.naam] ?? "").trim();
-        if (waarde) (inzending as Record<string, string>)[veld.naam as string] = waarde;
+        if (waarde) inzending[veld.naam as string] = waarde;
       }
       await verstuurInzending(inzending);
       setKlaar(true);
