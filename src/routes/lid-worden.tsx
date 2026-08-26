@@ -3,12 +3,12 @@ import { KnopLink, Kaart, Sectie, Kop, Foto, Label } from "@/components/ui-basis
 import { BonenDivider, KoffieBoon, KoffieKop } from "@/components/koffie";
 import { ContactCta } from "@/components/ContactCta";
 import { Formulier, type Veld } from "@/components/Formulier";
-import { MediaSpeler } from "@/components/MediaSpeler";
 
 import groepsfoto from "@/assets/groepsfoto.jpeg.asset.json";
 import boekenCirkel from "@/assets/boeken-cirkel.jpeg.asset.json";
 import thrillersTafel from "@/assets/thrillers-tafel.jpeg.asset.json";
 import douweEgberts from "@/assets/douwe-egberts-pand.jpeg.asset.json";
+import boekenCollage from "@/assets/boeken-collage.jpeg.asset.json";
 
 /* ============================================================
    TEKSTEN — LID WORDEN
@@ -16,46 +16,50 @@ import douweEgberts from "@/assets/douwe-egberts-pand.jpeg.asset.json";
 const INTRO = {
   titel: "Lid worden",
   tekst:
-    "Wij zijn Boekenclub Den Bosch: een gezellige club lezers tussen de 20 en 40 jaar. We positioneren ons nadrukkelijk niet als een literaire club — bij ons is het lekker informeel. We komen altijd samen in een café (meestal bij Douwe Egberts) om samen een boek te bespreken. Gewoon vertellen wat je van het boek vond, meer niet.",
+    "Wij zijn Boekenclub Den Bosch: een groep meiden tussen de 20-40 jaar die houdt van lezen! Iedere 7 weken komen we bij Douwe Egberts samen om het nieuwe boek te bespreken. En ja, soms schuift er ook een auteur aan.",
 };
 
 const TWEE_CLUBJES = {
   titel: "Twee clubjes",
   tekst:
-    "We hebben twee soorten boekenclubjes: bij het ene lezen we vooral romans, bij het andere vooral thrillers. Geen fantasy, sci-fi of young adult. Samen bepalen we welk boek we lezen: iedereen draagt ideeën aan en we stemmen op de leukste.",
+    "Vanwege de hoge populariteit hebben we inmiddels twee clubjes opgericht. Eén leest vooral romans, het andere vooral thrillers. Geen fantasy, sci-fi of young adult. Samen bepalen we welk boek we gaan lezen: iedereen stuurt zijn idee in en vervolgens gaan we stemmen!",
 };
 
 const STAPPEN = [
   "Meld je aan via het formulier.",
-  "Kies je clubje: romans of thrillers.",
-  "Samen kiezen we het volgende boek.",
-  "Iedere 6 à 7 weken komen we samen bij Douwe Egberts om het boek te bespreken — met een lekkere koffie erbij.",
+  "Laat ons weten welk genre je het liefst leest voor een goede match",
+  "Kom bij de eerstvolgende editie vrijblijvend meekletsen, sfeer (en lekkere koffie) proeven",
+  "Laat ons weten of je definitief aan wil haken, dan zien we je na 7 weken weer bij Douwe Egberts! Misschien zelfs met het boek dat jij hebt uitgekozen. 😊",
 ];
 
 const LIDMAATSCHAP = [
-  "Iedere 7 weken boekenclub (of 6 weken, afhankelijk van hoe snel jullie lezen 😉)",
-  "Altijd een geregelde locatie — meestal Douwe Egberts, en anders zorgen we op tijd voor een leuke back-up.",
+  "Iedere 7 à 8 weken boekenclub",
   "Promotie van de club, zodat 'ie blijft groeien en je steeds nieuwe mensen ontmoet.",
-  "We werken toe naar leuke samenwerkingen, bijvoorbeeld korting op drankjes of boeken.",
-  "Auteursbezoeken — wij regelen dat auteurs langskomen (inclusief hun fee en drankjes).",
-  "En nog veel meer leuke activiteiten!",
+  "Auteursbezoeken: Thomas Olde Heuvelt en Alexander Colin hebben al met ons koffiegedronken!",
+  "Leuke activiteiten, zoals samen op het strand lezen of boekenbios!",
 ];
 
 const PRIJS_TEKST =
-  "Het lidmaatschap is een jaarabonnement, maandelijks opzegbaar, van € 3,50 per maand (exclusief drankjes). Hoe we dat precies regelen bepalen we samen — heel vrijblijvend, geen gedoe vooraf.";
+  "Het lidmaatschap is een jaarabonnement van € 3,50 per maand. Dankzij jouw bijdrage kunnen wij bovenstaand ieder jaar weer opnieuw organiseren!";
 
-const ACTIVITEITEN = {
-  titel: "Activiteiten",
-  tekst: "We organiseren ook regelmatig leuke activiteiten.",
-};
+/**
+ * Boeken die we al gelezen hebben, met het cijfer dat de club gaf.
+ * Zodra de foto's per boek er zijn, kun je hieronder een `foto` toevoegen.
+ */
+const GELEZEN_BOEKEN: { titel: string; cijfer: string }[] = [
+  { titel: "Het laatste verhaal van Jamie Gunn", cijfer: "—" },
+  { titel: "Het laatste slachtoffer", cijfer: "—" },
+  { titel: "Tales from the café", cijfer: "—" },
+];
 
 /** Velden van het aanmeldformulier — hier makkelijk aan te passen. */
 const AANMELD_VELDEN: Veld[] = [
-  { naam: "naam", label: "Naam", verplicht: true },
-  { naam: "leeftijd", label: "Leeftijd" },
+  { naam: "voornaam", label: "Voornaam", verplicht: true },
+  { naam: "achternaam", label: "Achternaam", verplicht: true },
+  { naam: "telefoon", label: "Telefoonnummer", verplicht: true },
+  { naam: "leeftijd", label: "Leeftijd", verplicht: true },
   { naam: "genres", label: "Genres die je graag leest", breed: true },
   { naam: "bericht", label: "Opmerking / notitie", type: "textarea" },
-  { naam: "email", label: "E-mailadres", type: "email", verplicht: true },
 ];
 
 export const Route = createFileRoute("/lid-worden")({
@@ -65,12 +69,12 @@ export const Route = createFileRoute("/lid-worden")({
       {
         name: "description",
         content:
-          "Word lid van Boekenclub Den Bosch: informeel samen lezen, romans of thrillers, iedere 6 à 7 weken samen bij Douwe Egberts met een lekkere koffie.",
+          "Word lid van Boekenclub Den Bosch: informeel samen lezen, romans of thrillers, iedere 7 weken samen bij Douwe Egberts met een lekkere koffie.",
       },
       { property: "og:title", content: "Boekenclub Den Bosch | Lid worden" },
       {
         property: "og:description",
-        content: "Gratis & vrijblijvend aanmelden bij een gezellige boekenclub in Den Bosch.",
+        content: "Sluit je aan bij de meiden van Boekenclub Den Bosch.",
       },
     ],
   }),
@@ -91,10 +95,7 @@ function LidWorden() {
             <p className="mt-5 text-lg text-muted-foreground">{INTRO.tekst}</p>
             <div className="mt-8 flex flex-wrap gap-4">
               <KnopLink to="/lid-worden" hash="aanmelden">
-                Gratis & vrijblijvend aanmelden
-              </KnopLink>
-              <KnopLink to="/contact" variant="lijn">
-                Neem contact op
+                Aanmelden
               </KnopLink>
             </div>
           </div>
@@ -112,6 +113,7 @@ function LidWorden() {
       <Sectie>
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div className="grid grid-cols-2 gap-4">
+            {/* FOTO LID WORDEN 1 — wordt vervangen zodra de nieuwe foto er is */}
             <Foto
               src={boekenCirkel.url}
               alt="Boeken van de boekenclub in een cirkel gelegd"
@@ -132,7 +134,7 @@ function LidWorden() {
 
       {/* HOE HET WERKT */}
       <Sectie className="bg-secondary/50">
-        <Kop sub="In vier simpele stapjes zit je aan tafel.">Hoe het werkt</Kop>
+        <Kop sub="In vier simpele stapjes zit je bij ons.">Hoe het werkt</Kop>
         <div className="mt-10 grid gap-10 lg:grid-cols-[1.1fr_1fr]">
           <ol className="grid gap-5">
             {STAPPEN.map((stap, i) => (
@@ -149,16 +151,15 @@ function LidWorden() {
           <Foto
             src={douweEgberts.url}
             alt="Het Douwe Egberts café in Den Bosch waar de boekenclub samenkomt"
-            bijschrift="Onze vaste stek: Douwe Egberts in Den Bosch."
+            bijschrift="Ons vaste stekje"
             ratio="aspect-[3/4]"
           />
         </div>
       </Sectie>
 
-
       {/* WAT JE KRIJGT */}
       <Sectie>
-        <Kop sub="Geen ingewikkelde pakketten — dit krijg je gewoon allemaal.">
+        <Kop sub="Een community voor echte boekenliefhebbers!">
           Wat je krijgt bij je lidmaatschap
         </Kop>
         <ul className="mt-10 grid gap-4 md:grid-cols-2">
@@ -176,47 +177,62 @@ function LidWorden() {
         </Kaart>
       </Sectie>
 
-      {/* ACTIVITEITEN + VIDEO/REEL PLACEHOLDER */}
+      {/* DIT HEBBEN WE AL GELEZEN */}
       <Sectie className="bg-secondary/50">
-        <div className="grid items-center gap-10 lg:grid-cols-2">
-          <div>
-            <Kop sub={ACTIVITEITEN.tekst}>{ACTIVITEITEN.titel}</Kop>
-            <p className="mt-4 text-muted-foreground">
-              Denk aan auteursbezoeken, borrels en spontane leesavonden — altijd met koffie.
+        <Kop sub="Deze boeken hebben we al gelezen — en dit was het cijfer. De foto's per boek volgen nog.">
+          Dit hebben we al gelezen
+        </Kop>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {GELEZEN_BOEKEN.map((boek) => (
+            <Kaart key={boek.titel} className="flex items-center justify-between gap-4">
+              <div>
+                <h3 className="text-xl">{boek.titel}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">Cijfer van de club</p>
+              </div>
+              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary font-display text-xl font-bold text-primary-foreground">
+                {boek.cijfer}
+              </span>
+            </Kaart>
+          ))}
+        </div>
+        <div className="mt-8 grid gap-6 lg:grid-cols-[1.2fr_1fr]">
+          <Foto
+            src={boekenCollage.url}
+            alt="Collage van de boeken die de boekenclub het afgelopen jaar las"
+            ratio="aspect-[4/3]"
+          />
+          <div className="flex flex-col justify-center">
+            <p className="text-lg text-muted-foreground">
+              Iedere editie kiezen we samen een nieuw boek — en aan het eind van het jaar maken we
+              er een mooie wrapped van.
             </p>
-            <div className="mt-7">
-              <KnopLink to="/contact" variant="zacht">
-                Neem contact op
+            <div className="mt-6">
+              <KnopLink to="/lid-worden" hash="aanmelden">
+                Aanmelden
               </KnopLink>
             </div>
           </div>
-
-          {/* VIDEO / REEL van de club */}
-          <MediaSpeler />
-
         </div>
       </Sectie>
 
       {/* AANMELDFORMULIER */}
       <Sectie id="aanmelden">
-        <Kop sub="Kort, simpel en vrijblijvend. We nemen daarna gewoon even contact met je op.">
-          Aanmelden
-        </Kop>
+        <Kop sub="Vul het formulier in, dan nemen we snel contact met je op">Aanmelden</Kop>
         <div className="mt-8">
           <Formulier
             type="lid"
             velden={AANMELD_VELDEN}
             knoptekst="Aanmelden"
-            onderschrift="Gratis & vrijblijvend aanmelden"
             succestekst="Bedankt! We nemen snel contact met je op."
           />
         </div>
       </Sectie>
 
       <ContactCta
-        titel="Nog even twijfelen?"
-        tekst="Stel gerust je vraag — we bijten niet, we lezen alleen."
-        primair={{ label: "Bekijk Over ons", to: "/over-ons" }}
+        titel="Twijfel je nog?"
+        tekst="Stuur ons een berichtje of volg ons een tijdje op Instagram!"
+        primair={null}
+        instagram
       />
     </>
   );

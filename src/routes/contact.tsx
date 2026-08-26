@@ -12,8 +12,7 @@ import koffieBoekenlegger from "@/assets/koffie-boekenlegger.jpeg.asset.json";
 const CONTACT = {
   titel: "Contact",
   tekst: "We zijn heel benaderbaar — je hoort snel van ons!",
-  intro:
-    "Lid worden, samenwerken of gewoon een vraag? Stuur een berichtje, dan reageren we zo snel mogelijk.",
+  intro: "Lid worden, samenwerken of gewoon een vraag? Stuur mij - Julia - een berichtje!",
 };
 
 /** Velden van het algemene contactformulier. */
@@ -26,7 +25,6 @@ const CONTACT_VELDEN: Veld[] = [
     type: "select",
     opties: ["Lid worden", "Samenwerking", "Anders"],
   },
-  { naam: "samenwerking", label: "Wat voor samenwerking?", hint: "Alleen invullen bij een samenwerking." },
   { naam: "bericht", label: "Bericht / opmerking", type: "textarea" },
 ];
 
