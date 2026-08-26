@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { NAVIGATIE, Logo } from "@/components/Header";
 import { KoffieBoon } from "@/components/koffie";
+import { INSTAGRAM_URL } from "@/components/ContactCta";
 
 /** Footer — teksten en links pas je hier aan. */
 export function Footer() {
