@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { NAVIGATIE, Logo } from "@/components/Header";
 import { KoffieBoon } from "@/components/koffie";
+import { INSTAGRAM_URL } from "@/components/ContactCta";
 
 /** Footer — teksten en links pas je hier aan. */
 export function Footer() {
@@ -30,7 +31,7 @@ export function Footer() {
         <div>
           <h3 className="text-lg">Contact</h3>
           <p className="mt-3 text-muted-foreground">
-            Vragen, ideeën of gewoon nieuwsgierig? We zijn heel benaderbaar.
+            Lid worden of samenwerken? Stuur ons een berichtje!
           </p>
           <Link
             to="/contact"
@@ -44,8 +45,12 @@ export function Footer() {
           <h3 className="text-lg">Volg ons</h3>
           {/* Social links — vul hier later de echte Instagram-URL in. */}
           <ul className="mt-3 grid gap-2 text-muted-foreground">
-            <li>Instagram (link volgt)</li>
-            <li>Den Bosch · meestal bij Douwe Egberts</li>
+            <li>
+              <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className="hover:text-primary">
+                Instagram
+              </a>
+            </li>
+            <li>Den Bosch</li>
           </ul>
           <div className="mt-4 flex gap-2 text-latte">
             <KoffieBoon className="h-5 w-5" />
