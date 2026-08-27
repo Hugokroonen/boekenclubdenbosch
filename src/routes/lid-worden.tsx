@@ -5,7 +5,7 @@ import { ContactCta } from "@/components/ContactCta";
 import { Formulier, type Veld } from "@/components/Formulier";
 
 import groepsfoto from "@/assets/groepsfoto.jpeg.asset.json";
-import boekenCirkel from "@/assets/boeken-cirkel.jpeg.asset.json";
+import talesFromTheCafe from "@/assets/tales-from-the-cafe.jpeg.asset.json";
 import thrillersTafel from "@/assets/thrillers-tafel.jpeg.asset.json";
 import douweEgberts from "@/assets/douwe-egberts-pand.jpeg.asset.json";
 import boekenCollage from "@/assets/boeken-collage.jpeg.asset.json";
@@ -113,10 +113,9 @@ function LidWorden() {
       <Sectie>
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div className="grid grid-cols-2 gap-4">
-            {/* FOTO LID WORDEN 1 — wordt vervangen zodra de nieuwe foto er is */}
             <Foto
-              src={boekenCirkel.url}
-              alt="Boeken van de boekenclub in een cirkel gelegd"
+              src={talesFromTheCafe.url}
+              alt="De boeken Voordat de warmte verdwijnt en Tales from the café met twee cappuccino's"
               ratio="aspect-[3/4]"
             />
             <Foto

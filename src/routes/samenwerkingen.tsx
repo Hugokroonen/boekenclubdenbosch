@@ -5,8 +5,8 @@ import { ContactCta } from "@/components/ContactCta";
 
 import douweEgberts from "@/assets/douwe-egberts-pand.jpeg.asset.json";
 import eigenaarPortret from "@/assets/eigenaar-portret.jpeg.asset.json";
-import tweeLattes from "@/assets/twee-lattes.jpeg.asset.json";
-import boekenCollage from "@/assets/boeken-collage.jpeg.asset.json";
+import geheugenpolitie from "@/assets/geheugenpolitie-winkel.jpeg.asset.json";
+import gewetenloos from "@/assets/gewetenloos.jpeg.asset.json";
 
 /* ============================================================
    TEKSTEN — SAMENWERKINGEN
@@ -109,16 +109,15 @@ function Samenwerkingen() {
           </Kaart>
         </div>
 
-        {/* FOTO SAMENWERKINGEN 1 & 2 — worden vervangen zodra de nieuwe foto's er zijn */}
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           <Foto
-            src={tweeLattes.url}
-            alt="Twee koffies naast boeken op een marmeren tafel"
+            src={geheugenpolitie.url}
+            alt="De roman De geheugenpolitie voor een boekhandel in Den Bosch"
             ratio="aspect-[4/3]"
           />
           <Foto
-            src={boekenCollage.url}
-            alt="Collage van boeken die de club het afgelopen jaar las"
+            src={gewetenloos.url}
+            alt="De thriller Gewetenloos van Karin Slaughter bij een iced latte op een terras"
             ratio="aspect-[4/3]"
           />
         </div>

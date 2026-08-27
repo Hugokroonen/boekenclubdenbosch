@@ -4,9 +4,9 @@ import { BonenDivider, KoffieBoon, BoekIcoon } from "@/components/koffie";
 import { ContactCta } from "@/components/ContactCta";
 import { Formulier, type Veld } from "@/components/Formulier";
 
-import boekKoffie from "@/assets/boek-koffie.jpeg.asset.json";
+import koffieNaastBoek from "@/assets/koffie-naast-boek.jpeg.asset.json";
 import thrillerKoffie from "@/assets/thriller-koffie.jpeg.asset.json";
-import eigenaarAuteur from "@/assets/eigenaar-auteur.jpeg.asset.json";
+import bergDieWacht from "@/assets/berg-die-wacht.jpeg.asset.json";
 
 /* ============================================================
    TEKSTEN — BEGINNEND AUTEUR
@@ -84,10 +84,9 @@ function BeginnendAuteur() {
               </KnopLink>
             </div>
           </div>
-          {/* FOTO BEGINNEND AUTEUR 1 — wordt vervangen zodra de nieuwe foto er is */}
           <Foto
-            src={boekKoffie.url}
-            alt="Een boek en een cappuccino op tafel"
+            src={koffieNaastBoek.url}
+            alt="Een kop koffie naast een opengeslagen boek op een houten tafel"
             ratio="aspect-[4/5]"
           />
         </div>
@@ -112,10 +111,9 @@ function BeginnendAuteur() {
 
       <Sectie className="bg-secondary/50">
         <div className="grid items-center gap-10 lg:grid-cols-2">
-          {/* FOTO BEGINNEND AUTEUR 3 — wordt vervangen zodra de nieuwe foto er is */}
           <Foto
-            src={eigenaarAuteur.url}
-            alt="Persoonlijk contact met een auteur bij de boekenclub"
+            src={bergDieWacht.url}
+            alt="De roman Ik ken een berg die op me wacht naast een opengeslagen boek"
             ratio="aspect-[4/3]"
           />
           <div>

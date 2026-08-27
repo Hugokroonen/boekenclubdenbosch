@@ -6,7 +6,7 @@ import { MediaSpeler } from "@/components/MediaSpeler";
 
 import boekKoffie from "@/assets/boek-koffie.jpeg.asset.json";
 import groepsfoto from "@/assets/groepsfoto.jpeg.asset.json";
-import koffieBoekenlegger from "@/assets/koffie-boekenlegger.jpeg.asset.json";
+import blauwVanDeHemel from "@/assets/blauw-van-de-hemel.jpeg.asset.json";
 import douweEgberts from "@/assets/douwe-egberts-pand.jpeg.asset.json";
 import koffieZeepaardje from "@/assets/koffie-zeepaardje.jpeg.asset.json";
 import tweeLattes from "@/assets/twee-lattes.jpeg.asset.json";
@@ -190,8 +190,8 @@ function Home() {
       <Sectie>
         <div className="grid items-center gap-10 lg:grid-cols-[1.2fr_1fr]">
           <Foto
-            src={koffieBoekenlegger.url}
-            alt="Cappuccino met een boekenlegger van de boekenclub"
+            src={blauwVanDeHemel.url}
+            alt="Het boek Al het blauw van de hemel met een verse muntthee op tafel"
             ratio="aspect-[16/10]"
           />
           <div>
