@@ -3,7 +3,7 @@ import { KnopLink, Sectie, Kop, Foto, Label } from "@/components/ui-basis";
 import { KoffieKop } from "@/components/koffie";
 import { Formulier, type Veld } from "@/components/Formulier";
 
-import eigenaarPortret from "@/assets/eigenaar-portret.jpeg.asset.json";
+import juliaLezen from "@/assets/julia-lezen.jpeg.asset.json";
 import koffieBoekenlegger from "@/assets/koffie-boekenlegger.jpeg.asset.json";
 
 /* ============================================================
@@ -72,10 +72,10 @@ function Contact() {
 
           <div className="grid gap-6">
             <Foto
-              src={eigenaarPortret.url}
-              alt="De oprichter van Boekenclub Den Bosch"
+              src={juliaLezen.url}
+              alt="Julia van Boekenclub Den Bosch lezend in een fauteuil"
               bijschrift="Je krijgt gewoon antwoord van een mens, geen standaardmailtje."
-              ratio="aspect-[4/5]"
+              ratio="aspect-[4/3]"
             />
             <Foto
               src={koffieBoekenlegger.url}
