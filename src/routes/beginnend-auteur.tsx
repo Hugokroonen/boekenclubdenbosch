@@ -29,9 +29,6 @@ const PRIJS = {
     "Om jou van goede feedback te voorzien, nemen we de tijd om je boek aandachtig te lezen en een heldere review te formuleren. Daarvoor vragen we een vergoeding van € 99 (excl. btw). Daarbij is een promotie op onze Instagrampagina inbegrepen!",
 };
 
-const CTA_TEKST =
-  "Heb je vragen over proeflezen? Of heb je ons eigenlijk nodig voor iets anders? Stuur gewoon een berichtje!";
-
 /** Velden van het auteursformulier. */
 const AUTEUR_VELDEN: Veld[] = [
   { naam: "naam", label: "Naam", verplicht: true },
@@ -110,18 +107,12 @@ function BeginnendAuteur() {
       </Sectie>
 
       <Sectie className="bg-secondary/50">
-        <div className="grid items-center gap-10 lg:grid-cols-2">
+        <div className="mx-auto max-w-3xl">
           <Foto
             src={bergDieWacht.url}
             alt="De roman Ik ken een berg die op me wacht naast een opengeslagen boek"
-            ratio="aspect-[4/3]"
+            ratio="aspect-[16/10]"
           />
-          <div>
-            <Kop sub={CTA_TEKST}>Even sparren?</Kop>
-            <div className="mt-7 flex flex-wrap gap-4">
-              <KnopLink to="/contact">Contact opnemen</KnopLink>
-            </div>
-          </div>
         </div>
       </Sectie>
 

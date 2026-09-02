@@ -2,11 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { KnopLink, Sectie, Kop, Foto, Label, Kaart } from "@/components/ui-basis";
 import { BonenDivider, KoffieKop, KoffieBoon } from "@/components/koffie";
 import { ContactCta } from "@/components/ContactCta";
+import { GelezenBoeken } from "@/components/GelezenBoeken";
 
 import groepsfoto from "@/assets/groepsfoto.jpeg.asset.json";
 import koffieZeepaardje from "@/assets/koffie-zeepaardje.jpeg.asset.json";
-import tweeLattes from "@/assets/twee-lattes.jpeg.asset.json";
-import latteBoek from "@/assets/latte-boek.jpeg.asset.json";
 
 /* ============================================================
    TEKSTEN — OVER ONS
@@ -73,33 +72,10 @@ function OverOns() {
 
       <BonenDivider />
 
-      <Sectie>
-        <Kop sub="Ontdek wie we zijn en wat we doen!">Dit zijn wij</Kop>
-        {/* Hier komen straks de reels (o.a. EenVandaag en het lezen op het strand). */}
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          <Foto
-            src={tweeLattes.url}
-            alt="Twee koffies en twee boeken op tafel bij de boekenclub"
-            ratio="aspect-[3/4]"
-          />
-          <Foto
-            src={latteBoek.url}
-            alt="Menukaart met koffie naast een roman"
-            ratio="aspect-[3/4]"
-            className="md:mt-8"
-          />
-          <Foto
-            src={koffieZeepaardje.url}
-            alt="Cappuccino met latte art naast twee romans"
-            ratio="aspect-[3/4]"
-          />
-        </div>
-      </Sectie>
-
       <Sectie className="bg-secondary/50">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div>
-            <Kop sub="Waarom we dit doen">Lezen verbindt</Kop>
+            <Kop>Lezen verbindt</Kop>
             <ul className="mt-6 grid gap-4">
               {WAAROM.map((r) => (
                 <li key={r}>
@@ -112,10 +88,17 @@ function OverOns() {
             </ul>
           </div>
           <Foto
-            src={groepsfoto.url}
-            alt="De boekenclub samen in het café in Den Bosch"
+            src={koffieZeepaardje.url}
+            alt="Cappuccino met latte art naast twee romans van de boekenclub"
             ratio="aspect-[4/5]"
           />
+        </div>
+      </Sectie>
+
+      <Sectie>
+        <Kop sub="Ontdek welk cijfer ze kregen.">Deze boeken hebben we al gelezen</Kop>
+        <div className="mt-10">
+          <GelezenBoeken />
         </div>
       </Sectie>
 

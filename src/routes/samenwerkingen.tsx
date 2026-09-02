@@ -4,7 +4,6 @@ import { BonenDivider, KoffieKop, BoekIcoon, KoffieBoon } from "@/components/kof
 import { ContactCta } from "@/components/ContactCta";
 
 import douweEgberts from "@/assets/douwe-egberts-pand.jpeg.asset.json";
-import eigenaarPortret from "@/assets/eigenaar-portret.jpeg.asset.json";
 import geheugenpolitie from "@/assets/geheugenpolitie-winkel.jpeg.asset.json";
 import gewetenloos from "@/assets/gewetenloos.jpeg.asset.json";
 
@@ -14,7 +13,7 @@ import gewetenloos from "@/assets/gewetenloos.jpeg.asset.json";
 const INTRO = {
   titel: "Samenwerkingen",
   tekst:
-    "Lokale betrokkenheid vinden wij ontzettend belangrijk. Daarom komen we het liefst iedere 7 weken samen in een zaak van een Bossche ondernemer en scoren we onze boeken bij een lokale boekhandel. Help jij ons daarbij?",
+    "Lokale betrokkenheid vinden wij ontzettend belangrijk. Daarom komen we het liefst samen in een zaak van een Bossche ondernemer en scoren we onze boeken bij een lokale boekhandel. Help jij ons daarbij?",
 };
 
 const KOFFIEZAKEN = {
@@ -124,13 +123,7 @@ function Samenwerkingen() {
       </Sectie>
 
       <Sectie className="bg-secondary/50">
-        <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.2fr]">
-          <Foto
-            src={eigenaarPortret.url}
-            alt="De oprichters van Boekenclub Den Bosch"
-            bijschrift="Even persoonlijk: je praat gewoon met ons, niet met een organisatie."
-            ratio="aspect-[4/5]"
-          />
+        <div className="mx-auto max-w-3xl">
           <div>
             <Kop>{OVERIG.titel}</Kop>
             <p className="mt-3 text-lg text-muted-foreground">{OVERIG.tekst}</p>

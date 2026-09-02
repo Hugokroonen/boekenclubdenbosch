@@ -11,7 +11,7 @@ import koffieBoekenlegger from "@/assets/koffie-boekenlegger.jpeg.asset.json";
    ============================================================ */
 const CONTACT = {
   titel: "Contact",
-  tekst: "We zijn heel benaderbaar — je hoort snel van ons!",
+  tekst: "Samen koffiedrinken?",
   intro: "Lid worden, samenwerken of gewoon een vraag? Stuur mij - Julia - een berichtje!",
 };
 
@@ -23,7 +23,7 @@ const CONTACT_VELDEN: Veld[] = [
     naam: "interesse",
     label: "Ik ben geïnteresseerd in",
     type: "select",
-    opties: ["Lid worden", "Samenwerking", "Anders"],
+    opties: ["Lid worden", "Proeflezen", "Samenwerking", "Anders"],
   },
   { naam: "bericht", label: "Bericht / opmerking", type: "textarea" },
 ];
@@ -60,6 +60,15 @@ function Contact() {
             <h1 className="mt-5 text-4xl text-balance-nl sm:text-5xl">{CONTACT.titel}</h1>
             <p className="mt-4 text-lg text-muted-foreground">{CONTACT.intro}</p>
 
+            <div className="mt-8 lg:hidden">
+              <Foto
+                src={juliaLezen.url}
+                alt="Julia van Boekenclub Den Bosch lezend in een fauteuil"
+                bijschrift="Je krijgt binnen 24 uur reactie."
+                ratio="aspect-[4/3]"
+              />
+            </div>
+
             <div className="mt-8">
               <Formulier
                 type="contact"
@@ -74,8 +83,9 @@ function Contact() {
             <Foto
               src={juliaLezen.url}
               alt="Julia van Boekenclub Den Bosch lezend in een fauteuil"
-              bijschrift="Je krijgt gewoon antwoord van een mens, geen standaardmailtje."
+              bijschrift="Je krijgt binnen 24 uur reactie."
               ratio="aspect-[4/3]"
+              className="hidden lg:block"
             />
             <Foto
               src={koffieBoekenlegger.url}

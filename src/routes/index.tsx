@@ -172,18 +172,8 @@ function Home() {
 
       {/* DE REEL VAN DE CLUB */}
       <Sectie>
-        <div className="grid items-center gap-10 lg:grid-cols-2">
+        <div className="mx-auto max-w-2xl">
           <MediaSpeler />
-          <div>
-            <Kop sub="Zo ziet een avondje Boekenclub Den Bosch er ongeveer uit.">
-              Even sfeer proeven
-            </Kop>
-            <div className="mt-7">
-              <KnopLink to="/lid-worden" hash="aanmelden">
-                Aanmelden
-              </KnopLink>
-            </div>
-          </div>
         </div>
       </Sectie>
 

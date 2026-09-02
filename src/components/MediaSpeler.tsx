@@ -53,11 +53,7 @@ export function MediaSpeler() {
             {muziekAan ? "Muziek uit" : "Muziek aan"}
           </button>
         </>
-      ) : (
-        <p className="mt-3 text-center text-sm text-muted-foreground">
-          Muziekje onder de reel? Stuur een audiobestand door, dan zet ik 'm eronder.
-        </p>
-      )}
+      ) : null}
     </div>
   );
 }
