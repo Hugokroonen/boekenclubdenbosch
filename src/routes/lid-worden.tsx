@@ -3,12 +3,13 @@ import { KnopLink, Kaart, Sectie, Kop, Foto, Label } from "@/components/ui-basis
 import { BonenDivider, KoffieBoon, KoffieKop } from "@/components/koffie";
 import { ContactCta } from "@/components/ContactCta";
 import { Formulier, type Veld } from "@/components/Formulier";
+import { GelezenBoeken } from "@/components/GelezenBoeken";
+import { Wrapped } from "@/components/Wrapped";
 
 import groepsfoto from "@/assets/groepsfoto.jpeg.asset.json";
 import talesFromTheCafe from "@/assets/tales-from-the-cafe.jpeg.asset.json";
 import thrillersTafel from "@/assets/thrillers-tafel.jpeg.asset.json";
 import douweEgberts from "@/assets/douwe-egberts-pand.jpeg.asset.json";
-import boekenCollage from "@/assets/boeken-collage.jpeg.asset.json";
 
 /* ============================================================
    TEKSTEN — LID WORDEN
@@ -42,15 +43,6 @@ const LIDMAATSCHAP = [
 const PRIJS_TEKST =
   "Het lidmaatschap is een jaarabonnement van € 3,50 per maand. Dankzij jouw bijdrage kunnen wij bovenstaand ieder jaar weer opnieuw organiseren!";
 
-/**
- * Boeken die we al gelezen hebben, met het cijfer dat de club gaf.
- * Zodra de foto's per boek er zijn, kun je hieronder een `foto` toevoegen.
- */
-const GELEZEN_BOEKEN: { titel: string; cijfer: string }[] = [
-  { titel: "Het laatste verhaal van Jamie Gunn", cijfer: "—" },
-  { titel: "Het laatste slachtoffer", cijfer: "—" },
-  { titel: "Tales from the café", cijfer: "—" },
-];
 
 /** Velden van het aanmeldformulier — hier makkelijk aan te passen. */
 const AANMELD_VELDEN: Veld[] = [
@@ -178,34 +170,18 @@ function LidWorden() {
 
       {/* DIT HEBBEN WE AL GELEZEN */}
       <Sectie className="bg-secondary/50">
-        <Kop sub="Deze boeken hebben we al gelezen — en dit was het cijfer. De foto's per boek volgen nog.">
-          Dit hebben we al gelezen
-        </Kop>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {GELEZEN_BOEKEN.map((boek) => (
-            <Kaart key={boek.titel} className="flex items-center justify-between gap-4">
-              <div>
-                <h3 className="text-xl">{boek.titel}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">Cijfer van de club</p>
-              </div>
-              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary font-display text-xl font-bold text-primary-foreground">
-                {boek.cijfer}
-              </span>
-            </Kaart>
-          ))}
-        </div>
-        <div className="mt-8 grid gap-6 lg:grid-cols-[1.2fr_1fr]">
-          <Foto
-            src={boekenCollage.url}
-            alt="Collage van de boeken die de boekenclub het afgelopen jaar las"
-            ratio="aspect-[4/3]"
-          />
-          <div className="flex flex-col justify-center">
-            <p className="text-lg text-muted-foreground">
-              Iedere editie kiezen we samen een nieuw boek — en aan het eind van het jaar maken we
-              er een mooie wrapped van.
+        <Kop sub="Ontdek welk cijfer ze kregen.">Deze boeken hebben we al gelezen</Kop>
+        <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1fr]">
+          <GelezenBoeken />
+          <div>
+            <h3 className="text-2xl">Onze wrapped</h3>
+            <p className="mt-2 text-muted-foreground">
+              Klik door onze boeken heen — of leun achterover en laat 'm afspelen.
             </p>
             <div className="mt-6">
+              <Wrapped />
+            </div>
+            <div className="mt-8">
               <KnopLink to="/lid-worden" hash="aanmelden">
                 Aanmelden
               </KnopLink>
