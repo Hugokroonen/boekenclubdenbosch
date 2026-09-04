@@ -26,7 +26,7 @@ const HOE_HET_WERKT = {
 const PRIJS = {
   titel: "Wat kost het?",
   tekst:
-    "Om jou van goede feedback te voorzien, nemen we de tijd om je boek aandachtig te lezen en een heldere review te formuleren. Daarvoor vragen we een vergoeding van € 99 (excl. btw). Daarbij is een promotie op onze Instagrampagina inbegrepen!",
+    "Om jou van goede feedback te voorzien, nemen we de tijd om je boek aandachtig te lezen en een heldere review te formuleren. Daarvoor vragen we een vergoeding van € 99. Daarbij is een promotie op onze Instagrampagina inbegrepen!",
 };
 
 /** Velden van het auteursformulier. */
