@@ -4,7 +4,7 @@ import { BonenDivider, KoffieBoon, KoffieKop } from "@/components/koffie";
 import { ContactCta } from "@/components/ContactCta";
 import { Formulier, type Veld } from "@/components/Formulier";
 import { GelezenBoeken } from "@/components/GelezenBoeken";
-import { Wrapped } from "@/components/Wrapped";
+
 
 import groepsfoto from "@/assets/groepsfoto.jpeg.asset.json";
 import talesFromTheCafe from "@/assets/tales-from-the-cafe.jpeg.asset.json";
@@ -171,22 +171,13 @@ function LidWorden() {
       {/* DIT HEBBEN WE AL GELEZEN */}
       <Sectie className="bg-secondary/50">
         <Kop sub="Ontdek welk cijfer ze kregen.">Deze boeken hebben we al gelezen</Kop>
-        <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1fr]">
+        <div className="mt-10">
           <GelezenBoeken />
-          <div>
-            <h3 className="text-2xl">Onze wrapped</h3>
-            <p className="mt-2 text-muted-foreground">
-              Klik door onze boeken heen — of leun achterover en laat 'm afspelen.
-            </p>
-            <div className="mt-6">
-              <Wrapped />
-            </div>
-            <div className="mt-8">
-              <KnopLink to="/lid-worden" hash="aanmelden">
-                Aanmelden
-              </KnopLink>
-            </div>
-          </div>
+        </div>
+        <div className="mt-10 text-center">
+          <KnopLink to="/lid-worden" hash="aanmelden">
+            Aanmelden
+          </KnopLink>
         </div>
       </Sectie>
 

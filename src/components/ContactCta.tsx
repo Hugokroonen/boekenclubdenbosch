@@ -2,7 +2,7 @@ import { KnopLink, Sectie } from "@/components/ui-basis";
 import { KoffieKop, KoffieStoom } from "@/components/koffie";
 
 /** Instagram — vul hier de echte URL in zodra die bekend is. */
-export const INSTAGRAM_URL = "https://www.instagram.com/boekenclubdenbosch/";
+export const INSTAGRAM_URL = "https://www.instagram.com/boekenclub_denbosch/";
 
 function InstagramIcoon({ className }: { className?: string }) {
   return (
