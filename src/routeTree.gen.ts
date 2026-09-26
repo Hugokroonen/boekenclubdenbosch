@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BeginnendAuteurRouteImport } from './routes/beginnend-auteur'
+import { Route as BeheerRouteImport } from './routes/beheer'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as LidWordenRouteImport } from './routes/lid-worden'
 import { Route as OverOnsRouteImport } from './routes/over-ons'
@@ -24,6 +25,11 @@ const IndexRoute = IndexRouteImport.update({
 const BeginnendAuteurRoute = BeginnendAuteurRouteImport.update({
   id: '/beginnend-auteur',
   path: '/beginnend-auteur',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BeheerRoute = BeheerRouteImport.update({
+  id: '/beheer',
+  path: '/beheer',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -50,6 +56,7 @@ const SamenwerkingenRoute = SamenwerkingenRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/beginnend-auteur': typeof BeginnendAuteurRoute
+  '/beheer': typeof BeheerRoute
   '/contact': typeof ContactRoute
   '/lid-worden': typeof LidWordenRoute
   '/over-ons': typeof OverOnsRoute
@@ -58,6 +65,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/beginnend-auteur': typeof BeginnendAuteurRoute
+  '/beheer': typeof BeheerRoute
   '/contact': typeof ContactRoute
   '/lid-worden': typeof LidWordenRoute
   '/over-ons': typeof OverOnsRoute
@@ -67,6 +75,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/beginnend-auteur': typeof BeginnendAuteurRoute
+  '/beheer': typeof BeheerRoute
   '/contact': typeof ContactRoute
   '/lid-worden': typeof LidWordenRoute
   '/over-ons': typeof OverOnsRoute
@@ -77,6 +86,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/beginnend-auteur'
+    | '/beheer'
     | '/contact'
     | '/lid-worden'
     | '/over-ons'
@@ -85,6 +95,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/beginnend-auteur'
+    | '/beheer'
     | '/contact'
     | '/lid-worden'
     | '/over-ons'
@@ -93,6 +104,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/beginnend-auteur'
+    | '/beheer'
     | '/contact'
     | '/lid-worden'
     | '/over-ons'
@@ -102,6 +114,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BeginnendAuteurRoute: typeof BeginnendAuteurRoute
+  BeheerRoute: typeof BeheerRoute
   ContactRoute: typeof ContactRoute
   LidWordenRoute: typeof LidWordenRoute
   OverOnsRoute: typeof OverOnsRoute
@@ -122,6 +135,13 @@ declare module '@tanstack/react-router' {
       path: '/beginnend-auteur'
       fullPath: '/beginnend-auteur'
       preLoaderRoute: typeof BeginnendAuteurRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/beheer': {
+      id: '/beheer'
+      path: '/beheer'
+      fullPath: '/beheer'
+      preLoaderRoute: typeof BeheerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -158,6 +178,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BeginnendAuteurRoute: BeginnendAuteurRoute,
+  BeheerRoute: BeheerRoute,
   ContactRoute: ContactRoute,
   LidWordenRoute: LidWordenRoute,
   OverOnsRoute: OverOnsRoute,
