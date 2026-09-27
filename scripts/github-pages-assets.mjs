@@ -17,3 +17,6 @@ for (const file of readdirSync("src/assets").filter((f) => f.endsWith(".asset.js
 }
 // Tell GitHub Pages not to run Jekyll (keeps folders like __l5e intact).
 writeFileSync(join(OUT, ".nojekyll"), "");
+// GitHub Pages: unknown paths (like /beheer) fall back to the app so it can render them.
+import { copyFileSync, existsSync } from "node:fs";
+if (existsSync(join(OUT, "index.html"))) copyFileSync(join(OUT, "index.html"), join(OUT, "404.html"));

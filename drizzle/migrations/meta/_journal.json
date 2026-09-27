@@ -8,6 +8,13 @@
       "when": 1790413673934,
       "tag": "0000_beheerder_toegang_inzendingen",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1790500222422,
+      "tag": "0001_beheerder_alleen_julia",
+      "breakpoints": true
     }
   ]
 }
