@@ -90,6 +90,9 @@ function Inloggen() {
         });
         if (error) throw error;
       } else {
+        if (email.trim().toLowerCase() !== "juliakroonen71@gmail.com") {
+          throw new Error("Met dit e-mailadres kun je geen account aanmaken.");
+        }
         const { data, error } = await supabase.auth.signUp({
           email: email.trim(),
           password: wachtwoord,
