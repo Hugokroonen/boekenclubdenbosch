@@ -18,9 +18,9 @@ import tweeLattes from "@/assets/twee-lattes.jpeg.asset.json";
    ============================================================ */
 const HERO = {
   label: "Boekenclub in Den Bosch ☕",
-  titel: "Boekenclub Den Bosch",
+  titel: "Zin om samen te lezen?",
   subtitel:
-    "Eens een ander boek lezen en je ongezouten mening erover geven? Of zoek je juist een stok achter de deur? Meld je aan bij Boekenclub Den Bosch en kom terecht in een boekenclub met andere gezellige meiden!",
+    "Ben je tussen de 20 en 40 jaar en houd je van lezen? Wij ook! Van romans tot thrillers en van klassiekers tot nieuwe releases, iedere 7 weken staat er weer een ander boek op de planning om samen over te kletsen. Zin om mee te lezen? Sluit je aan!",
   knopPrimair: "Aanmelden",
   knopSecundair: "Over ons",
 };
