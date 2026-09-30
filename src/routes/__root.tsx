@@ -95,21 +95,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: `${import.meta.env.BASE_URL}favicon.ico`, sizes: "any" },
       {
         rel: "icon",
-        href: `${import.meta.env.BASE_URL}favicon.svg?v=2`,
+        href: `${import.meta.env.BASE_URL}koffie-icoon.svg`,
         type: "image/svg+xml",
+        sizes: "any",
       },
       {
         rel: "icon",
-        href: `${import.meta.env.BASE_URL}favicon-32.png?v=2`,
+        href: `${import.meta.env.BASE_URL}koffie-icoon-48.png`,
         type: "image/png",
-        sizes: "32x32",
+        sizes: "48x48",
       },
       {
         rel: "apple-touch-icon",
-        href: `${import.meta.env.BASE_URL}apple-touch-icon.png?v=2`,
+        href: `${import.meta.env.BASE_URL}koffie-icoon-180.png`,
         sizes: "180x180",
       },
       { rel: "manifest", href: `${import.meta.env.BASE_URL}site.webmanifest` },
